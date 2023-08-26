@@ -4,11 +4,13 @@ In this project, I utilized a cross-sectional population survey of college stude
 
 #### **Variables **
 ##### Predictors 
-*Generalized Anxiety Disorder Questionnaire-IV (GAD-Q-IV).
-Social Phobia Diagnostic Questionnaire (SPDQ). 
+*
+Generalized Anxiety Disorder Questionnaire-IV (GAD-Q-IV).
+Social Phobia Diagnostic Questionnaire (SPDQ). ,
 Panic Disorder Self-Report (PDSR). 
 Patient Health Questionnaire-9 (PHQ-9). The PHQ-9 assesses symptoms of major depression based on diagnostic criteria of the DSM-IV. 
 Primary Care PTSD Screen (PTSD).
+*
 ##### Outcome
 Suicidal ideation was assessed using item 9 of the PHQ-9, which asked how much respondents thought about hurting themselves or that they would be better off dead in the past two weeks. 
 
