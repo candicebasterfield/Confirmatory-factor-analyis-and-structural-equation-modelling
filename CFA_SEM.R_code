@@ -31,7 +31,7 @@ table(df$sex_factor)
 table(df$gender_factor)
 table(df$race_factor)
 
-# Prevalence rates for emmotional disorder factors 
+## Prevalence rates for emmotional disorder factors 
 table(df$gad_dsm_newman) 
 describe(df$gad_dsm_newman) 
 table(df$sad_dsm) 
@@ -46,10 +46,10 @@ phq9 <- nrow(subset(df, phq9_tot>10))
 phq9 <- nrow(subset(df, phq9_tot>15))
 phq9 <- nrow(subset(df, phq9_tot>20)) 
 
-# Correlation matrix and vizualization
+## Correlation matrix and vizualization
 x<-ma.wtd.corNA(df, weights=NULL, vars=NULL, method="unbiased")
 
-# Get lower correlation matrix only (empty upper matrix)
+## Get lower correlation matrix only (empty upper matrix)
 library(xtable)
 upper<-x
 upper[upper.tri(x)]<-""
@@ -62,8 +62,8 @@ ggcorrplot(x,
            type = "lower",
            lab = TRUE)
 
-
-#Two-factor model
+# Fitting confirmatory factor models
+## Two-factor model
 psy.model<-'fear=~ pdsr_tot + ptsd_tot              
            distress=~ phq9_1to8 + gadqiv_tot + spdq_tot 
             int=~ 1*fear + 1*distress'
@@ -86,8 +86,8 @@ fit.higher <- sem.mi(psy.model, miPackage = "mice", estimator="ML",
                     data=df)
 summary(fit.higher, fit.measures = TRUE, standardized = TRUE, rsquare = TRUE) 
 
-
-# Regress the first-order distress factor (and second-order internalizing factor) on suicidal ideation
+# Stuctural equation models
+## Regress the first-order distress factor (and second-order internalizing factor) on suicidal ideation
 
 direct.dist<-'
             fear=~  pdsr_tot + ptsd_tot              
@@ -114,7 +114,7 @@ summary(fit.direct.dist,
         standardized = TRUE, 
         rsquare = TRUE) 
 
-# Regress the first-order fear factor (and second-order internalizing factor) on suicideal ideation
+## Regress the first-order fear factor (and second-order internalizing factor) on suicideal ideation
 
 direct.fear <- ' #specifies the model
       # measurement model
@@ -142,7 +142,7 @@ summary(fit.direct.fear,
         standardized = TRUE, 
         rsquare = TRUE) 
 
-# Regress depression (and the first-order distress factor and second-order internalizing factor) on suicideal ideation
+## Regress depression (and the first-order distress factor and second-order internalizing factor) on suicideal ideation
 
 direct.dep <- ' #specifies the model
       # measurement model
@@ -174,8 +174,7 @@ summary(fit.direct.dep,
 
 
 
-# Regress generalized anxiety (and the first-order distress factor and second-order internalizing factor) on suicideal ideation
-
+## Regress generalized anxiety (and the first-order distress factor and second-order internalizing factor) on suicideal ideation
 
 direct.gad <- ' #specifies the model
       # measurement model
@@ -205,7 +204,7 @@ summary(fit.direct.gad,
         standardized = TRUE, 
         rsquare = TRUE) 
 
-# Regress spdq (and the first-order fear factor and second-order internalizing factor) on suicideal ideation
+## Regress spdq (and the first-order fear factor and second-order internalizing factor) on suicideal ideation
 
 direct.spdq <- ' #specifies the model
       # measurement model
@@ -237,7 +236,7 @@ summary(fit.direct.spdq,
         rsquare = TRUE) 
 
 
-# Regress ptsd(and the first-order fear factor and second-order internalizing factor) on suicideal ideation
+## Regress ptsd(and the first-order fear factor and second-order internalizing factor) on suicideal ideation
 
 direct.ptsd <- ' #specifies the model
       # measurement model
@@ -268,7 +267,7 @@ summary(fit.direct.ptsd,
         standardized = TRUE, 
         rsquare = TRUE) 
 
-# Regress panic (and the first-order fear factor and second-order internalizing factor) on suicideal ideation
+## Regress panic (and the first-order fear factor and second-order internalizing factor) on suicideal ideation
 
 direct.pan <- ' #specifies the model
       # measurement model
